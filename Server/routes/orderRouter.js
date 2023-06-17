@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const orderController = require("../controllers/orderController");
-const authController = require("../controllers/authController");
 
 
-router.get("/order", orderController.allOrders);
-router.post("/one_order_by_Id", orderController.oneOrderById);
-router.post("/one_order_by_email", orderController.oneOrderByEmail);
+router.get("/all_order", orderController.allOrders);
+router.get("/all_order_Not_active", orderController.allOrdersNotActive);
+router.get("/one_order_by_Id/:id", orderController.oneOrderById);
 router.post("/all_order_by_email", orderController.AllOrderByEmail);
-router.get("/order/:id", orderController.oneorder);
-router.put("/order/:id", orderController.updateorder);
-router.delete("/order/:id", orderController.deleteDonor);
+router.post("/new_order", orderController.newOrder);
+router.put("/order/:id", orderController.updateOrder);
+router.delete("/order/:id", orderController.deleteOrder);
 
 module.exports = router;
